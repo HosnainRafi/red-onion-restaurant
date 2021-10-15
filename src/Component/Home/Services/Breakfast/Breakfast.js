@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import useMeal from '../../../../hooks/useMeal';
 import SingleBreakfast from './SingleBreakfast/SingleBreakfast';
 
 const Breakfast = () => {
-    const [foods, setFoods] = useState([]);
-    useEffect(() => {
-        fetch('https://raw.githubusercontent.com/HosnainRafi/red-onion-restaurant/main/public/meal.json')
-            .then(res => res.json())
-            .then(data => setFoods(data));
-    }, []);
+
+    const {foods} = useMeal();
 
 
     return (

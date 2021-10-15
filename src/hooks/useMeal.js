@@ -7,10 +7,10 @@ const useMeal = () => {
 
 
     useEffect(() => {
-        fetch('meal.json')
-        .then(res => res.json())
-        .then(data => setFoods(data))
-    })
+        fetch('https://raw.githubusercontent.com/HosnainRafi/red-onion-restaurant/main/public/meal.json')
+            .then(res => res.json())
+            .then(data => setFoods(data));
+    }, []);
 
     return {
         foods,
