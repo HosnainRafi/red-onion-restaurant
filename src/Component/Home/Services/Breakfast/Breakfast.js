@@ -4,7 +4,7 @@ import SingleBreakfast from './SingleBreakfast/SingleBreakfast';
 const Breakfast = () => {
     const [foods, setFoods] = useState([]);
     useEffect(() => {
-        fetch('./meal.json')
+        fetch('https://raw.githubusercontent.com/HosnainRafi/red-onion-restaurant/main/public/meal.json')
             .then(res => res.json())
             .then(data => setFoods(data));
     }, []);
@@ -14,7 +14,7 @@ const Breakfast = () => {
         <div className="container">
             <div className="row">
                 {
-                    foods.map(food => <SingleBreakfast
+                    foods.slice(0,6).map(food => <SingleBreakfast
                         key={food.id}
                         food={food}
                     ></SingleBreakfast>)
