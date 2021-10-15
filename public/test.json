@@ -1,0 +1,136 @@
+[
+    {
+    "breakfast": [
+    {
+    "itemId": "bf1",
+    "itemTitle": "Bagel and Cream Cheese",
+    "itemImg": "https://i.ibb.co/k5TWLpT/breakfast1.png",
+    "itemDetails": "How we serve our meal",
+    "itemPrice": 6.99
+    },
+    {
+    "itemId": "bf2",
+    "itemTitle": "Breakfast Sandwich",
+    "itemImg": "https://i.ibb.co/8gRqjQC/breakfast2.png",
+    "itemDetails": "How we serve our meal",
+    "itemPrice": 9.99
+    },
+    {
+    "itemId": "bf3",
+    "itemTitle": "Baked Chicken",
+    "itemImg": "https://i.ibb.co/f8jbWQL/breakfast3.png",
+    "itemDetails": "How we serve our meal",
+    "itemPrice": 10.99
+    },
+    {
+    "itemId": "bf4",
+    "itemTitle": "Eggs Benedict",
+    "itemImg": "https://i.ibb.co/2td1Y1H/breakfast4.png",
+    "itemDetails": "How we serve our meal",
+    "itemPrice": 8.99
+    },
+    {
+    "itemId": "bf5",
+    "itemTitle": "Toast Croissant Fried Egg",
+    "itemImg": "https://i.ibb.co/jfHhjcb/breakfast5.png",
+    "itemDetails": "How we serve our meal",
+    "itemPrice": 19.99
+    },
+    {
+    "itemId": "bf6",
+    "itemTitle": "Full Breakfast Egg Toast Brunch",
+    "itemImg": "https://i.ibb.co/NZ6djcJ/breakfast6.png",
+    "itemDetails": "How we serve our meal",
+    "itemPrice": 3.99
+    }
+    ],
+    "lunch": [
+    {
+    "itemId": "ln1",
+    "itemTitle": "Healthy Meal Plan",
+    "itemImg": "https://i.ibb.co/346yxCB/lunch1.png",
+    "itemDetails": "How we serve our meal",
+    "itemPrice": 23.99
+    },
+    {
+    "itemId": "ln2",
+    "itemTitle": "Fried Chicken Bento",
+    "itemImg": "https://i.ibb.co/2Mh0kJn/lunch2.png",
+    "itemDetails": "How we serve our meal",
+    "itemPrice": 9.99
+    },
+    {
+    "itemId": "ln3",
+    "itemTitle": "Tarragon-Rubbed-Salmon",
+    "itemImg": "https://i.ibb.co/hfz7wNM/lunch3.png",
+    "itemDetails": "How we serve our meal",
+    "itemPrice": 6.99
+    },
+    {
+    "itemId": "ln4",
+    "itemTitle": "Indian Lunch",
+    "itemImg": "https://i.ibb.co/0Zfss6p/lunch4.png",
+    "itemDetails": "How we serve our meal",
+    "itemPrice": 8.99
+    },
+    {
+    "itemId": "ln5",
+    "itemTitle": "Beef Steak",
+    "itemImg": "https://i.ibb.co/BVJnNwv/lunch5.png",
+    "itemDetails": "How we serve our meal",
+    "itemPrice": 15.99
+    },
+    {
+    "itemId": "ln6",
+    "itemTitle": "Honey-Soy-Glazed Salmon with Peppers",
+    "itemImg": "https://i.ibb.co/FDqKGwm/lunch6.png",
+    "itemDetails": "How we serve our meal",
+    "itemPrice": 7.99
+    }
+    ],
+    "dinner": [
+    {
+    "itemId": "dn1",
+    "itemTitle": "Salmon with Grapefruit and Lentil Salad",
+    "itemImg": "https://i.ibb.co/3mgFrTP/dinner1.png",
+    "itemDetails": "How we serve our meal",
+    "itemPrice": 9.99
+    },
+    {
+    "itemId": "dn2",
+    "itemTitle": "Lemony Salmon Piccata",
+    "itemImg": "https://i.ibb.co/cCn4B2H/dinner2.png",
+    "itemDetails": "How we serve our meal",
+    "itemPrice": 10.99
+    },
+    {
+    "itemId": "dn3",
+    "itemTitle": "Pork Tenderloin with Quiona Pilaf",
+    "itemImg": "https://i.ibb.co/SVsGQJL/dinner3.png",
+    "itemDetails": "How we serve our meal",
+    "itemPrice": 12.99
+    },
+    {
+    "itemId": "dn4",
+    "itemTitle": "French Fries with Cheese",
+    "itemImg": "https://i.ibb.co/nn9pVC6/dinner4.png",
+    "itemDetails": "How we serve our meal",
+    "itemPrice": 8.99
+    },
+    {
+    "itemId": "dn5",
+    "itemTitle": "Garlic butter Baked Salmon",
+    "itemImg": "https://i.ibb.co/9WwmS0T/dinner5.png",
+    "itemDetails": "How we serve our meal",
+    "itemPrice": 6.99
+    },
+    {
+    "itemId": "dn6",
+    "itemTitle": "Baked Chicken",
+    "itemImg": "https://i.ibb.co/b3mxc8X/dinner6.png",
+    "itemDetails": "How we serve our meal",
+    "itemPrice": 9.99
+    }
+    ]
+    }
+    ]
