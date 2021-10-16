@@ -7,6 +7,10 @@ import NotFound from './Component/NotFound/NotFound';
 import Login from './Component/Login/Login/Login';
 import Register from './Component/Register/Register';
 import AuthProvider from './context/AuthProvider';
+import BreakfastDetails from './Component/Home/Services/Breakfast/BreakfastDetails/BreakfastDetails';
+import SingleLunch from './Component/Home/Services/Lunch/SingleLunch/SingleLunch';
+import LunchDetails from './Component/Home/Services/Lunch/LunchDetails/LunchDetails';
+import DinnerDetails from './Component/Home/Services/Dinner/DinnerDetails/DinnerDetails';
 
 
 function App() {
@@ -22,8 +26,14 @@ function App() {
             <Route path="/home">
               <Home></Home>
             </Route>
-            <Route path="/home/breakfast">
-              <Home></Home>
+            <Route exact path="/home-breakfast/:serviceId">
+              <BreakfastDetails></BreakfastDetails>
+            </Route>
+            <Route exact path="/home-lunch/:serviceId">
+              <LunchDetails></LunchDetails>
+            </Route>
+            <Route exact path="/home-dinner/:serviceId">
+              <DinnerDetails></DinnerDetails>
             </Route>
             <Route path="/login">
               <Login></Login>

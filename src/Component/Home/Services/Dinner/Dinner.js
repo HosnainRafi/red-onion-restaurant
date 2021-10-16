@@ -6,7 +6,7 @@ const Dinner = () => {
     const { foods } = useMeal();
     return (
         <div className="container">
-            <div className="row m-4 p-4">
+            <div className="row m-4 p-4 g-4">
                 {
                     foods.slice(12, 18).map(food => <SingleDinner
                         key={food.id}
