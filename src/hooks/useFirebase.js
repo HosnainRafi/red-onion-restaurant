@@ -34,6 +34,9 @@ const useFirebase = () => {
     const handleNameChange = e => {
         setName(e.target.value);
     }
+    const toggleLogin = e => {
+        setIsLogin(e.target.checked)
+    }
 
     //Take and Set Email
     const handleEmailChange = e => {

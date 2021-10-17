@@ -85,6 +85,7 @@ const Login = () => {
                     console.log(result.user.emailVerified)
                     setUser(result.user);
                     setSuccess('Signed-In successfully!');
+                    handleUpdateProfile();
                     setError('');
                 }
                 else {
@@ -116,7 +117,7 @@ const Login = () => {
 
             <div className="container-login w-50 mx-auto shadow p-3 m-5 bg-body rounded">
                 <h2 className="text-center golden-color">Login</h2>
-                <form onSubmit={handleEmailForm}>
+                <form onSubmit={handleEmailLogin}>
                 {
                         success &&
                         <Alert severity="success" className="mb-2 fw-bold">
@@ -139,7 +140,7 @@ const Login = () => {
                         <input type="password" name="password" onBlur={handlePasswordChange}id="floatingPassword" placeholder="Password" className="form-control" required />
                         <label htmlFor="floatingPassword">Password</label>
                     </div>
-                    <input className="btn btn-primary" type="submit" value="Submit" />
+                    <input onClick={handleEmailLogin} className="btn btn-primary" type="submit" value="Submit" />
                 </form>
                 <div className="row mb-3 text-danger">{error}</div>
                 <br />
