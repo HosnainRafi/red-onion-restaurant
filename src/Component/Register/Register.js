@@ -1,126 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const Register = () => {
-    const { signInUsingGoogle,
-        user,
-        isLoading,
-        logOut,
-        handleNameChange,
-        handleEmailChange,
-        handlePasswordChange,
-        handleRegister,
-        handleResetPassword,
-        isLogin,
-        createNewUser,
-        setIsLoading,
-        error,
-        success,
-        processLogin,
-        verifyEmail,
-        setUser,
-        setSuccess,
-        setError,
-        setUserName} = useAuth();
+    /* const {handleNameChange,handlePasswordChange,handleEmailChange,
+    handleRegister,user,} = useAuth() ; */
 
-    //handle Login/Register
-    const handleEmailForm = (e) => {
-        setIsLoading(true);
-        e.preventDefault();
-        isLogin ? handleEmailRegister() : handleEmailLogin();
-        e.target.reset();
+    const [name,setName] =useState('');
+    const [email,setEmail] =useState('')
+    const [password,setPassword] = useState('')
+
+
+    const handleEmail = e =>{
+        setEmail(e.target.value)
     }
 
-    // register
-    const handleEmailRegister = () => {
-        createNewUser()
-            .then(result => {
-                console.log(result.user);
-                
-                setSuccess('Signed-Up successfully!');
-                setTimeout(() => {
-                    handleVerifyEmail();
-                }, 3000)
-                setError('');
-            })
-            .catch(err => {
-                setError(err.code);
-                setSuccess('');
-            })
-            .finally(() => setIsLoading(false));
+    const handleName = e =>{
+        setName(e.target.name)
     }
 
-
-
-    //login
-    const handleEmailLogin = () => {
-        processLogin()
-            .then(result => {
-                console.log(result.user);
-                if (result.user.emailVerified) {
-                    console.log(result.user.emailVerified)
-                    setUser(result.user);
-                    setSuccess('Signed-In successfully!');
-                    handleUpdateProfile();
-                    setError('');
-                }
-                else {
-                    setError('You must verify your email to get access to your content!');
-                    setSuccess('');
-                }
-            })
-            .catch(err => {
-                setError(err.code);
-                setSuccess('');
-            })
-            .finally(() => setIsLoading(false));
+    const handlePassword = e =>{
+        setPassword(e.target.password)
     }
 
-    //VerifyEmail
-    const handleVerifyEmail = () => {
-        verifyEmail()
-            .then(() => {
-                setSuccess('Verification message sent to your email!');
-            })
+    const [userInput,setUserInput] = useState({})
+
+
+    const {createNewUser} = useAuth();
+
+    const handleRegister = () => {
+        createNewUser(email,password,name)
     }
-
-    const handleUpdateProfile = () => {
-        setUserName();
-    }
-
-
+    
 
     return (
         <div>
-            {
-                !isLogin && 
-                <div className="container-login w-50 mx-auto shadow p-3 m-5 bg-body rounded">
+
+            <div className="container-login w-50 mx-auto shadow p-3 m-5 bg-body rounded">
                 <h2>Create Account</h2>
-                <form onSubmit={handleEmailForm}>
+                <form onSubmit={handleRegister}>
                     <div className="form-floating mt-5 mb-3">
-                        <input type="text" name="userName" id="floatingInput1" placeholder="Enter Your Name" className="form-control" required onBlur={handleNameChange} />
+                        <input type="text" name="userName" id="floatingInput1" placeholder="Enter Your Name" className="form-control" required onBlur={handleName} />
                         <label htmlFor="floatingInput1">UserName</label>
                     </div>
                     <div className="form-floating  mb-3">
-                        <input type="email" name="email" id="floatingInput" placeholder="name@example.com" className="form-control" required onBlur={handleEmailChange}/>
+                        <input type="email" name="email" id="floatingInput" placeholder="name@example.com" className="form-control" required onBlur={handleEmail}/>
                         <label htmlFor="floatingInput">Email address</label>
                     </div>
                     <div className="form-floating mb-3">
-                        <input type="password" name="password" id="floatingPassword" placeholder="Password" className="form-control" required onBlur={handlePasswordChange} />
+                        <input type="password" name="password" id="floatingPassword" placeholder="Password" className="form-control" required onBlur={handlePassword}/>
                         <label htmlFor="floatingPassword">Password</label>
                     </div>
-                    <div className="form-floating mb-3">
-                        <input type="password" name="password" id="floatingPassword" placeholder="Re-Enter Password" className="form-control" required />
-                        <label htmlFor="floatingPassword">Re-Enter Password</label>
-                    </div>
-                    <input onClick={handleEmailRegister} className="btn btn-primary" type="submit" value="Submit" />
+
+                    <input className="btn btn-primary" type="submit" value="Submit" />
                 </form>
-                <div className="row mb-3 text-danger">{error}</div>
+                <div className="row mb-3 text-danger"></div>
                 <br />
                 <p>Already have an account? <Link to="/login">Login</Link></p>
             </div>
-            }
         </div>
     );
 };

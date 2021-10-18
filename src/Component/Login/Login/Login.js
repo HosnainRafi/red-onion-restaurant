@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Alert, AlertTitle } from '@mui/material';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
@@ -6,31 +6,39 @@ import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
 
-    const { signInUsingGoogle,
-        user,
-        isLoading,
-        logOut,
-        handleNameChange,
+   /*  const { signInUsingGoogle,
+
         handleEmailChange,
         handlePasswordChange,
-        handleRegister,
-        handleResetPassword,
-        isLogin,
-        createNewUser,
         setIsLoading,
         error,
         success,
         processLogin,
-        verifyEmail,
         setUser,
         setSuccess,
         setError,
-        setUserName } = useAuth();
+        setUserName,
+        user ,
+    handleRegister} = useAuth(); */
 
+    const {signInUsingGoogle,user,setUser,setError,setSuccess,setIsLoading,processLogin,handleUserRegister,handleUserLogin,} =useAuth();
 
     const location = useLocation();
     const history = useHistory();
     const redirect_uri = location.state?.from || '/home';
+
+
+    const [email,setEmail] =useState('')
+    const [password,setPassword] = useState('')
+
+    const handleEmail = e =>{
+        setEmail(e.target.value)
+    }
+
+
+    const handlePassword = e =>{
+        setPassword(e.target.password)
+    }
 
     //handle Google Sign In
     const handleGoogleLogin = () => {
@@ -39,6 +47,7 @@ const Login = () => {
                 history.push(redirect_uri);
                 setUser(result.user)
                 setSuccess('Signed-In successfully!');
+                console.log(user);
             })
             .catch(err => {
                 setError(err.message);
@@ -47,78 +56,23 @@ const Login = () => {
             .finally(() => setIsLoading(false));
     }
 
-    //handle Login/Register
-    const handleEmailForm = (e) => {
-        setIsLoading(true);
-        e.preventDefault();
-        isLogin ? handleEmailRegister() : handleEmailLogin();
-        e.target.reset();
-    }
+    const handleRegister = () => {
+        handleUserRegister(email, password);
+      };
+    
+      const handleLogin = () => {
+        handleUserLogin(email, password);
+      };
 
-    // register
-    const handleEmailRegister = () => {
-        createNewUser()
-            .then(result => {
-                console.log(result.user);
-                handleUpdateProfile();
-                setSuccess('Signed-Up successfully!');
-                setTimeout(() => {
-                    handleVerifyEmail();
-                }, 3000)
-                setError('');
-            })
-            .catch(err => {
-                setError(err.code);
-                setSuccess('');
-            })
-            .finally(() => setIsLoading(false));
-    }
-
-
-
-    //login
-    const handleEmailLogin = () => {
-        processLogin()
-            .then(result => {
-                console.log(result.user);
-                if (result.user.emailVerified) {
-                    console.log(result.user.emailVerified)
-                    setUser(result.user);
-                    setSuccess('Signed-In successfully!');
-                    handleUpdateProfile();
-                    setError('');
-                }
-                else {
-                    setError('You must verify your email to get access to your content!');
-                    setSuccess('');
-                }
-            })
-            .catch(err => {
-                setError(err.code);
-                setSuccess('');
-            })
-            .finally(() => setIsLoading(false));
-    }
-
-    //VerifyEmail
-    const handleVerifyEmail = () => {
-        verifyEmail()
-            .then(() => {
-                setSuccess('Verification message sent to your email!');
-            })
-    }
-
-    const handleUpdateProfile = () => {
-        setUserName();
-    }
+ 
 
     return (
         <div>
 
             <div className="container-login w-50 mx-auto shadow p-3 m-5 bg-body rounded">
                 <h2 className="text-center golden-color">Login</h2>
-                <form onSubmit={handleEmailLogin}>
-                {
+                <form onSubmit={handleLogin}>
+                    {/* {
                         success &&
                         <Alert severity="success" className="mb-2 fw-bold">
                             <AlertTitle>Success</AlertTitle>
@@ -131,18 +85,18 @@ const Login = () => {
                             <AlertTitle>Error</AlertTitle>
                             {error}
                         </Alert>
-                    }
+                    } */}
                     <div className="form-floating mt-5 mb-3">
-                        <input type="email" name="email" id="floatingInput" onBlur={handleEmailChange}placeholder="name@example.com" className="form-control" required />
+                        <input type="email" name="email" id="floatingInput" placeholder="name@example.com" className="form-control" required onBlur={handleEmail}/>
                         <label htmlFor="floatingInput">Email address</label>
                     </div>
                     <div className="form-floating mb-3">
-                        <input type="password" name="password" onBlur={handlePasswordChange}id="floatingPassword" placeholder="Password" className="form-control" required />
+                        <input type="password" name="password" id="floatingPassword" placeholder="Password" className="form-control" required onBlur={handlePassword}/>
                         <label htmlFor="floatingPassword">Password</label>
                     </div>
-                    <input onClick={handleEmailLogin} className="btn btn-primary" type="submit" value="Submit" />
+                    <input className="btn btn-primary" type="submit" value="Submit" />
                 </form>
-                <div className="row mb-3 text-danger">{error}</div>
+                <div className="row mb-3 text-danger"></div>
                 <br />
                 <p>New to red-onion <Link to="/register">Create Your Account</Link></p>
                 <div>

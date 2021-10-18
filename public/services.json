@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "name": "General health care",
+      "details": "Interactively procrastinate high-payoff content without backward-compatible data. Quickly cultivate optimal processes.",
+      "img": "https://i.ibb.co/bgX9pMQ/professional-doctor-measuring-blood-pressure-260nw-1337363228.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Dental Services",
+      "details": "Objectively innovate empowered manufactured products whereas parallel platforms. Holisticly predominate extensible testing procedures.",
+      "img": "https://i.ibb.co/HBRpv1W/dentist-patient-office-260nw-1052270132.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Cardiology",
+      "details": "Proactively envisioned multimedia based expertise and cross-media growth strategies. Seamlessly visualize quality intellectual capital.",
+      "img": "https://i.ibb.co/xMLZwjf/cardiology.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Spinal Test",
+      "details": "Interactively procrastinate high-payoff content without backward-compatible data. Quickly cultivate optimal processes.",
+      "img": "https://i.ibb.co/27TMx3N/spinal.png"
+    },
+    {
+      "id": 5,
+      "name": "Orthopedics",
+      "details": "Collaboratively administrate turnkey channels whereas virtual e-tailers. Objectively seize scalable metrics whereas proactive e-services.",
+      "img": "https://i.ibb.co/VWR9n19/Close-up-of-the-therapist-showing-knee-joint-model-during-the-medical-consultation.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Pediatrics",
+      "details": "Interactively procrastinate high-payoff content without backward-compatible data. Quickly cultivate optimal processes.",
+      "img": "https://i.ibb.co/nbRZBDn/pediatrics.jpg"
+    }
+  ]

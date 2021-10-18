@@ -1,5 +1,7 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, sendEmailVerification,sendPasswordResetEmail } from "firebase/auth";
+import { Alert } from "@mui/material";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, sendEmailVerification, sendPasswordResetEmail } from "firebase/auth";
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import initializeAuthentication from "../Component/Login/firebase/firebase.init";
 
 
@@ -10,13 +12,12 @@ const useFirebase = () => {
     //Universal for firebase
     const auth = getAuth();
 
+    const history = useHistory();
     //Use state
     const [user, setUser] = useState({});
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [name, setName] = useState('');
-    const [isLogin, setIsLogin] = useState('')
-    const [success,setSuccess] = useState('');
+    
+    const [isLogin, setIsLogin] = useState(false)
+    const [success, setSuccess] = useState('');
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
@@ -26,31 +27,13 @@ const useFirebase = () => {
         setIsLoading(true);
         const googleProvider = new GoogleAuthProvider();
 
-
         return signInWithPopup(auth, googleProvider)
     }
 
-    //Take And Set Name
-    const handleNameChange = e => {
-        setName(e.target.value);
-    }
-    const toggleLogin = e => {
-        setIsLogin(e.target.checked)
-    }
+    
 
-    //Take and Set Email
-    const handleEmailChange = e => {
-        setEmail(e.target.value);
-    }
-
-    //Take and Set Password
-    const handlePasswordChange = e => {
-        setPassword(e.target.value);
-    }
-
-
-    //Register Email
-    const handleRegister = e => {
+    //Register
+    /* const handleRegister = e => {
         e.preventDefault();
         if (password.length < 6) {
             setError('Password must be 6 character long');
@@ -68,57 +51,48 @@ const useFirebase = () => {
             setError('Password must be include with two numbers');
             return;
         }
-        e.target.reset();
 
-        //Condition For Sign In and Register.Function for sign in and register.
-        isLogin ? processLogin(email, password) : createNewUser(email, password)
-    }
+        isLogin ? processLogin(email,password) : CreateNewUser(email.password)
+    } */
 
+    const handleUserRegister = (email, password) => {
+        createUserWithEmailAndPassword(auth, email, password)
+          .then((result) => {
+            console.log(result.user);
+          })
+          .catch((error) => {
+            const errorMessage = error.message;
+          });
+      };
+    
+      const handleUserLogin = (email, password) => {
+        signInWithEmailAndPassword(auth, email, password)
+          .then((result) => {
+            console.log(result.user);
+          })
+          .catch((error) => {
+            const errorMessage = error.message;
+          });
+      };
+    
+      
 
-     //For Sign In method
-     const processLogin = (email, password) => {
-       return signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                
-                console.log(user);
-                setError('')
-            })
-            .catch((error) => {
-                setError(error.message)
-            });
-    }
-
-
-
-    //For Register Function
-    const createNewUser = (email, password) => {
-       return createUserWithEmailAndPassword(auth, email, password)
-            
-    }
-
-
-    //Set User Name
-    const setUserName = () => {
-
+    const updateUserProfile = (name,image) =>{
         updateProfile(auth.currentUser, {
-            displayName: name
+            displayName: name,
+            photoURL: image
         }).then(() => {
-
-        }).catch((error) => {
-
-        });
+            setSuccess("Good job!", "Account has been created!", "success");
+            history.push('/');
+        })
     }
 
-
-
-    //Verify Email
     const verifyEmail = () => {
         sendEmailVerification(auth.currentUser)
             .then(() => {
-
+                setSuccess('Email Sent to Your Mail')
             });
     }
-
 
 
     useEffect(() => {
@@ -153,7 +127,7 @@ const useFirebase = () => {
 
 
     //Reset Password
-    const handleResetPassword = () => {
+/*     const handleResetPassword = () => {
         sendPasswordResetEmail(auth, email)
             .then(() => {
                 setSuccess('PassWord Reset Confirmation sent to your Email SuccessFully')
@@ -162,30 +136,28 @@ const useFirebase = () => {
             .catch((error) => {
                 setError(error.message)
             });
-    }
+    } */
 
     return {
-        signInUsingGoogle,
-        user,
-        isLoading,
+        // handleEmailChange,
+        // handleNameChange,
+        // handlePasswordChange,
+        // handleResetPassword,
         logOut,
-        handleNameChange,
-        handleEmailChange,
-        handlePasswordChange,
-        handleRegister,
-        handleResetPassword,
-        isLogin,
-        setIsLoading,
-        error,
-        success,
-        processLogin,
-        verifyEmail,
+        user,
         setUser,
-        setSuccess,
-        setError,
-        createNewUser,
-        setUserName
+        signInUsingGoogle,
+        CreateNewUser,
+        processLogin,
+        success,setSuccess,
+        error,setError,
+        setIsLogin,
+        handleUserRegister,
+        handleUserLogin
+        // handleRegister
+        
     }
-}
+
+    
 
 export default useFirebase;

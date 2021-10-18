@@ -1,0 +1,44 @@
+[
+    {
+      "id": 11,
+      "name": "Derrick Gray",
+      "work": "CHIEF LAB TECHNICIAN",
+      "details": "Interactively procrastinate high-payoff content without backward-compatible data. Quickly cultivate optimal processes.",
+      "img": "https://i.ibb.co/5nMRrJz/Portrait-Of-Mature-Male-Doctor-Wearing-White-Coat-Standing-In-Hospital-Corridor.jpg"
+    },
+    {
+      "id": 12,
+      "name": "John Wolff",
+      "work": "Surgery, Orthopedic",
+      "details": "Objectively innovate empowered manufactured products whereas parallel platforms. Holisticly predominate extensible testing procedures.",
+      "img": "https://i.ibb.co/8KK9yfG/doctor5.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Ashley Willson",
+      "work": "Dentist",
+      "details": "Proactively envisioned multimedia based expertise and cross-media growth strategies. Seamlessly visualize quality intellectual capital.",
+      "img": "https://i.ibb.co/Ks6drZP/Portrait-of-a-Caucasian-woman-dentist-sitting-in-her-office-next-to-a-dentist-chair-smiling.jpg"
+    },
+    {
+      "id": 14,
+      "name": "Gabriela Beckett",
+      "work": "Emergency Medicine",
+      "details": "Interactively procrastinate high-payoff content without backward-compatible data. Quickly cultivate optimal processes.",
+      "img": "https://i.ibb.co/4KQnwFX/Portrait-of-middle-aged-asian-female-doctor-standing-in-hospital-corridor.jpg"
+    },
+    {
+      "id": 15,
+      "name": "George Button",
+      "work": "Pediatrics Specialist",
+      "details": "Collaboratively administrate turnkey channels whereas virtual e-tailers. Objectively seize scalable metrics whereas proactive e-services.",
+      "img": "https://i.ibb.co/s1Vq98R/doctor6.jpg"
+    },
+    {
+      "id": 16,
+      "name": "John Willium",
+      "work": "Spinal Specialist",
+      "details": "Interactively procrastinate high-payoff content without backward-compatible data. Quickly cultivate optimal processes.",
+      "img": "https://i.ibb.co/Wv9kfzc/doctor4.jpg"
+    }
+  ]
